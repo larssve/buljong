@@ -1,0 +1,339 @@
+html, body {
+	height: 100%;
+	width: 100%;
+	overflow: hidden;
+	user-select: none;
+}
+
+p {
+	font-family: Verdana, sans-serif;
+	display: inline;
+	padding: 2px;
+	color: #ccc;
+}
+
+.kitchen {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin: auto;
+	height: 100%;
+	width: 100%;
+}
+
+.countertop {
+	position: relative;
+	background-color: #ccb;
+	height: 500px;
+	width: 900px;
+	border-radius: 5px;
+}
+
+.cooktop {
+	display: grid;
+	grid-template-areas: 
+		"burner burner"
+		"burner burner"
+		"selector selector"
+		"panel panel";
+
+	position: absolute;
+	bottom: 0;
+	right: 0;
+
+	margin: 40px;
+	
+	background-color: #333;
+	height: 350px;
+	width: 350px;
+
+	border-radius: 5px;
+
+	justify-items: center;
+	align-items: center;
+}
+
+.selectors {
+	grid-area: selector;
+	margin-top: -12px;
+}
+
+.selectors p {
+	cursor: pointer;
+}
+
+.on-off {
+	position: relative;
+	top: -1px;
+	margin-right: 5px;
+}
+
+.control-panel {
+	grid-area: panel;
+	margin-bottom: 10px;
+	text-align: center;
+}
+
+.control-panel p {
+	display: inline;
+	cursor: pointer;
+	padding: 2px;
+}
+
+
+
+.plate {
+	position: absolute;
+	width: 80px;
+	height: 80px;
+	background-color: #eee;
+	border: 20px solid #f2f2f2;
+
+	border-radius: 50%;
+	bottom: 50px;
+	left: 75px;
+}
+
+.pot {
+	position: absolute;
+	background: #999;
+	border-radius: 50%;
+
+	height: 100px;
+	width: 100px;
+	z-index: 2;
+}
+
+.handle {
+	background-color: #999;
+
+	border-radius: 50px;
+	position: absolute;
+	
+	top: 44px;
+	height: 12px;
+	width: 155px;
+
+	cursor: grab;
+	z-index: 1;
+}
+
+.handle:active {
+	cursor: grabbing;
+}
+
+.base {
+	background: #777;
+
+	border-radius: 50%;
+	position: absolute;
+	top: 6px;
+	left: 6px;
+
+	height: 88px;
+	width: 88px;
+	z-index: 2;
+}
+
+.flavour-zone {
+	position: relative;
+	height: 100px;
+	width: 100px;
+	z-index: 5;
+}
+
+.buljong {
+	position: relative;
+
+	height: 30px;
+	width: 30px;
+
+	top: 25px;
+	left: 25px;
+
+	border-radius: 5px;
+	z-index: 2;
+}
+
+.buljong > .wrapper {
+	background: #FFD700;
+
+	height: inherit;
+	width: inherit;
+	border-radius: inherit;
+
+	cursor: pointer;
+}
+
+.buljong > .flavour {
+	background: #D6E681;
+
+	height: inherit;
+	width: inherit;
+	border-radius: inherit;
+
+	cursor: grab;
+}
+
+.buljong > .flavour:active {
+	cursor: grabbing;
+}
+
+.water {
+	background: rgba(39, 93, 173, .35);
+	
+	border-radius: 100%;
+	position: absolute;
+	top: 4px;
+	left: 4px;
+	
+	height: 92px;
+	width: 92px;
+	z-index: 3;
+}
+
+.delicious {
+	border-radius: 100%;
+	position: absolute;
+	top: 4px;
+	left: 4px;
+
+	height: 92px;
+	width: 92px;
+	z-index: 3;
+	
+	transition: background-color 2s ease-in-out;
+}
+
+.delicious.start {
+	background-color: rgba(214, 230, 129, .10);
+	
+}
+
+.delicious.progress {
+	background-color: rgba(214, 230, 129, .25);
+}
+
+.delicious.sprint {
+	background-color: rgba(214, 230, 129, .40);
+}
+
+.delicious.finish {
+	background-color: rgba(214, 230, 129, .55);
+}
+
+.bubble {
+	position: absolute;
+	height: 50px;
+	width: 50px;
+	border-radius: 50%;
+	border: #ddf solid 5px;
+	margin-top: 15px;
+	margin-left: 15px;
+	z-index: 2;
+	opacity: 0;
+}
+
+.steam {
+	position: absolute;
+	height: 150px;
+	width: 150px;
+	border-radius: 50%;
+	background-color: #ddf;
+	margin-top: -20px;
+	margin-left: -30px;
+	z-index: 2;
+	opacity: 0;
+  }
+
+#steam-one {
+	animation: steam-one 2s ease-out infinite;
+}
+
+#steam-two {
+	animation: steam-two 2s ease-out 0.5s infinite;
+}
+
+#steam-three {
+	animation: steam-one 2s ease-out 1s infinite;
+}
+
+#steam-four {
+	animation: steam-two 2s ease-out 1.5s infinite;
+}
+
+@keyframes steam-one {
+	0% {transform: translateY(0) translateX(0) scale(0.25); opacity: 0.2;}
+	100% {transform: translateY(-100px) translateX(-20px) scale(1); opacity: 0;}
+}
+
+@keyframes steam-two {
+	0% {transform: translateY(0) translateX(0) scale(0.25); opacity: 0.2;}
+	100% {transform: translateY(-100px) translateX(20px) scale(1); opacity: 0;}
+}
+
+
+#bubble-one {
+	animation: bubble-one 0.8s ease-out infinite;
+}
+
+#bubble-two {
+	animation: bubble-two 0.8s ease-out 0.5s infinite;
+}
+
+@keyframes bubble-one {
+	0% {transform: scale(0.3); opacity: 0.2;}
+	100% {transform: scale(1); opacity: 0;}
+}
+
+@keyframes bubble-two {
+	0% {transform: scale(0.5); opacity: 0.2;}
+	100% {transform: scale(1.2); opacity: 0;}
+}
+
+.burner {
+	margin: 10px;
+	margin-top: 20px;
+	
+	border-radius: 50%;
+	border: 2px solid #ccc;
+	height: 110px;
+	width: 110px;
+}
+
+.burner.h1 {
+	background: radial-gradient(#FD5200 1%, transparent 40%);
+}
+
+.burner.h2 {
+	background: radial-gradient(#FD5200 2%, transparent 45%);
+}
+
+.burner.h3 {
+	background: radial-gradient(#FD5200 3%, transparent 50%);
+}
+
+.burner.h4 {
+	background: radial-gradient(#FD5200 4%, transparent 55%);
+}
+
+.burner.h5 {
+	background: radial-gradient(#FD5200 5%, transparent 60%);
+}
+
+.burner.h6 {
+	background: radial-gradient(#FD5200 6%, transparent 65%);
+}
+
+.burner.h7 {
+	background: radial-gradient(#FD5200 7%, transparent 70%);
+}
+
+.burner.h8 {
+	background: radial-gradient(#FD5200 8%, transparent 75%);
+}
+
+.burner.h9 {
+	background: radial-gradient(#FD5200 9%, transparent 85%);
+}
+
